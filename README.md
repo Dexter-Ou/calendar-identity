@@ -79,3 +79,7 @@ Linux/Python 3.12 is the tested platform. Inputs must resolve to regular files; 
 ## Migration review checklist
 
 [Use the calendar export comparison checklist](docs/MIGRATION-CHECKLIST.md) to investigate export scope, identity differences, sequence regressions and ambiguous duplicates before a separate provider import test. The checklist is included in the pinned source ZIP above.
+
+## Repeated exports with the same UID
+
+[Review repeated exports and changed meeting times](docs/UPDATE-REVIEW.md) to see why identical comparison metrics do not establish unchanged content or a successful import update. The guide includes a separately downloadable four-case fictional probe; these new files are not in the pinned ZIP above.
