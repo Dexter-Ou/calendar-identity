@@ -12,9 +12,9 @@ Compare two UTF-8 ICS exports locally. Output includes explicit VEVENT identity 
 
 Use two individual regular ICS files. Collection directories, import repair and provider synchronization are outside this tool's scope. Keep original exports unchanged and perform any import test separately on disposable calendars. The setup and pinned download below remain the starting point for running the CLI.
 
-[Source with fictional exercise — download the complete pinned ZIP](https://github.com/Dexter-Ou/calendar-identity/archive/f9f28a77bcbbb2ab891f301e8b11dc8ea1ea80b7.zip). It contains the CLI source, automated tests, fictional calendars, migration checklist, timezone and newline review guides, Unicode and file-layout probes, duplicate-export guidance and optional issue template. Extract it and open the `calendar-identity-f9f28a77bcbbb2ab891f301e8b11dc8ea1ea80b7` directory.
+[Source with fictional exercise — download the complete pinned ZIP](https://github.com/Dexter-Ou/calendar-identity/archive/03b88ed9f11bfbb159eae507ba368dac22aaadba.zip). It contains the CLI source, automated tests, fictional calendars, migration checklist, timezone and newline review guides, Unicode and file-layout probes, duplicate-export guidance and optional issue template. Extract it and open the `calendar-identity-03b88ed9f11bfbb159eae507ba368dac22aaadba` directory.
 
-[Verify the source ZIP before extracting or installing](docs/DOWNLOAD-INTEGRITY.md). The current online guide records the checksum for this exact snapshot. The ZIP contains an older README and integrity guide pointing to a preceding snapshot. After verifying this ZIP using the current online guide, continue with the setup commands below (or the identical setup commands inside the ZIP); you do not need to download the older snapshot.
+[Verify the source ZIP before extracting or installing](docs/DOWNLOAD-INTEGRITY.md). The current online guide records the checksum for this exact snapshot. The ZIP contains an older README and integrity guide pointing to a preceding snapshot, including an outdated statement that the warning is source-only; this pinned ZIP contains the warning and its tests. After verifying this ZIP using the current online guide, continue with the setup commands below (or the identical setup commands inside the ZIP); you do not need to download the older snapshot.
 
 Free, MIT-licensed preview from Gong LLC. Use Python 3.12 (tested on Linux only). In the extracted source directory, run these POSIX shell commands:
 
@@ -92,10 +92,10 @@ Linux/Python 3.12 is the tested platform. Inputs must resolve to regular files; 
 
 ## Repeated exports with the same UID
 
-[Review repeated exports and changed meeting times](docs/UPDATE-REVIEW.md) to see why identical comparison metrics do not establish unchanged content or a successful import update. The guide includes a separately downloadable four-case fictional probe; these new files are not in the pinned ZIP above.
+[Review repeated exports and changed meeting times](docs/UPDATE-REVIEW.md) to see why identical comparison metrics do not establish unchanged content or a successful import update. The guide includes a separately downloadable four-case fictional probe; the probe and guide are included in the pinned ZIP above.
 
-## Content-change warning (current source)
+## Content-change warning
 
-The current source adds `changed_event_representations`: before/after position pairs for shared identities whose parsed VEVENT serialization differs. It includes event properties, revision metadata and nested components such as alarms. A moved DTSTART with unchanged UID and SEQUENCE therefore produces a warning. No titles, UIDs, property values or fingerprints are included. Existing identity and sequence fields retain their meanings.
+The pinned download includes `changed_event_representations`: before/after position pairs for shared identities whose parsed VEVENT serialization differs. It includes event properties, revision metadata and nested components such as alarms. A moved DTSTART with unchanged UID and SEQUENCE therefore produces a warning. No titles, UIDs, property values or fingerprints are included. Existing identity and sequence fields retain their meanings.
 
-This is a conservative representation check, not a semantic diff. Property ordering normalized by the parser may compare equal; metadata-only changes may warn. An empty warning list does not establish unchanged source bytes or meaning. External VTIMEZONE definitions remain outside the check. Do not infer importer behavior or safety from either result. This warning is available in the current source; it is not included in the older pinned ZIP above. To use it now, obtain a source snapshot of the current revision and follow the same setup commands. The pinned ZIP retains its original identity-only behavior.
+This is a conservative representation check, not a semantic diff. Property ordering normalized by the parser may compare equal; metadata-only changes may warn. An empty warning list does not establish unchanged source bytes or meaning. External VTIMEZONE definitions remain outside the check. Do not infer importer behavior or safety from either result. This warning is included in the pinned ZIP above. After setup, run the CLI or `.venv/bin/python -m unittest -v` to exercise the automated synthetic cases.
