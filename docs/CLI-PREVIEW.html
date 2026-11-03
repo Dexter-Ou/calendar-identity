@@ -1,0 +1,30 @@
+<!doctype html><meta charset="utf-8"><title>Calendar Identity preview</title><style>body{margin:0;background:#101923;color:#e6edf3;font:16px/1.45 monospace;padding:30px}h1{font-size:25px;color:#9cdbff}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#182634;padding:22px;border-radius:12px}p{color:#c3d4e2}</style><h1>Calendar Identity · 0.1.0 preview</h1><p>Fictional ICS exports · actual CLI output · Linux / Python 3.12</p><pre>$ .venv/bin/python calendar_identity.py calendar-identity-feedback/before.ics calendar-identity-feedback/after.ics
+
+{
+  &quot;format&quot;: &quot;calendar-identity-preview-1&quot;,
+  &quot;comparison&quot;: &quot;literal UID and typed recurrence representation; no timezone equivalence or recurrence expansion&quot;,
+  &quot;before_events&quot;: 3,
+  &quot;after_events&quot;: 3,
+  &quot;added_event_positions&quot;: [
+    1
+  ],
+  &quot;removed_event_positions&quot;: [
+    3
+  ],
+  &quot;shared_identities&quot;: 2,
+  &quot;sequence_regressions&quot;: [
+    {
+      &quot;before_position&quot;: 2,
+      &quot;after_position&quot;: 2,
+      &quot;before_sequence&quot;: 3,
+      &quot;after_sequence&quot;: 2
+    }
+  ],
+  &quot;limitations&quot;: [
+    &quot;Shared identity does not mean unchanged event content.&quot;,
+    &quot;Representation changes can appear as removal plus addition.&quot;,
+    &quot;No prediction of import, merge, notification or provider behavior.&quot;,
+    &quot;Counts cover explicit VEVENT records only, not expanded occurrences.&quot;
+  ]
+}
+</pre><p>Literal identity comparison; no recurrence expansion or import prediction.<br>Shared identity does not mean unchanged event content.</p>
