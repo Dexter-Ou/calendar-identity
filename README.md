@@ -37,3 +37,7 @@ Report setup problems or reproducible bugs through this repository's issues. Inc
 ## Fictional setup exercise
 
 [Source with fictional exercise](https://github.com/Dexter-Ou/calendar-identity/archive/b3da96db7b5882e73ecd287c2f280613e06bd271.zip) includes the source and three fictional calendars. Extract it and follow [the exercise instructions](calendar-identity-feedback/TASK.md) to compare a moved recurrence exception and an ambiguous duplicate identity without using private calendars. [Expected answers](calendar-identity-feedback/ANSWERS.md) are separate so you can inspect the results first.
+
+## Duplicate exports
+
+[Duplicate-export guidance](calendar-identity-feedback/DUPLICATE-EXPORT-NOTE.md) explains why revision metadata does not resolve ambiguous identities and how to investigate without modifying the export. [Download source with this guide](https://github.com/Dexter-Ou/calendar-identity/archive/01c760eed0a26dcea0b27908ee379306bc4fbbf0.zip).
