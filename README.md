@@ -2,6 +2,16 @@
 
 Compare two UTF-8 ICS exports locally. Output includes explicit VEVENT identity additions/removals, shared identity counts, and sequence regressions. Positions are 1-based VEVENT order in each file. No file modification or network calls by this program. Reports omit UID, titles, descriptions and attendees; counts and positions can still be sensitive.
 
+## Choose your review task
+
+| Your task | Start here | What this tool can establish |
+| --- | --- | --- |
+| Compare identities in two calendar export files | [Migration review checklist](docs/MIGRATION-CHECKLIST.md) | Added, removed and shared literal event identities, plus sequence regressions. |
+| Investigate repeated imports or changed meeting times | [Repeated-export review](docs/UPDATE-REVIEW.md) | Identity overlap only; matching metrics do not confirm unchanged content or a successful update. |
+| Understand a report before using your own exports | [Fictional report guide](calendar-identity-feedback/REPORT-GUIDE.md) | Field meanings and the ambiguous-identity error path, using included fictional inputs. |
+
+Use two individual regular ICS files. Collection directories, import repair and provider synchronization are outside this tool's scope. Keep original exports unchanged and perform any import test separately on disposable calendars. The setup and pinned download below remain the starting point for running the CLI.
+
 [Source with fictional exercise — download the complete pinned ZIP](https://github.com/Dexter-Ou/calendar-identity/archive/f9f28a77bcbbb2ab891f301e8b11dc8ea1ea80b7.zip). It contains the CLI source, automated tests, fictional calendars, migration checklist, timezone and newline review guides, Unicode and file-layout probes, duplicate-export guidance and optional issue template. Extract it and open the `calendar-identity-f9f28a77bcbbb2ab891f301e8b11dc8ea1ea80b7` directory.
 
 [Verify the source ZIP before extracting or installing](docs/DOWNLOAD-INTEGRITY.md). The current online guide records the checksum for this exact snapshot. The ZIP contains an older README and integrity guide pointing to a preceding snapshot. After verifying this ZIP using the current online guide, continue with the setup commands below (or the identical setup commands inside the ZIP); you do not need to download the older snapshot.
