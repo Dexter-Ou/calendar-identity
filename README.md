@@ -2,6 +2,8 @@
 
 Compare two UTF-8 ICS exports locally. Output includes explicit VEVENT identity additions/removals, shared identity counts, and sequence regressions. Positions are 1-based VEVENT order in each file. No file modification or network calls by this program. Reports omit UID, titles, descriptions and attendees; counts and positions can still be sensitive.
 
+[Download the pinned source ZIP](https://github.com/Dexter-Ou/calendar-identity/archive/e6da38ad53a76b4f98316b207c0b8f923928fcc9.zip), extract it, and open the `calendar-identity-e6da38ad53a76b4f98316b207c0b8f923928fcc9` directory.
+
 Free, MIT-licensed preview from Gong LLC. Use Python 3.12 (tested on Linux only). In the extracted source directory, run these POSIX shell commands:
 
 ```sh
