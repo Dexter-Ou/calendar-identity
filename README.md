@@ -19,6 +19,17 @@ The disposable synthetic example should report 3 events in each file, one additi
 .venv/bin/python -m unittest -v
 ```
 
+To run from another directory after completing setup, set `PROJECT` to the absolute path of your extracted source directory. Keep the quotes, including when paths contain spaces. This example compares only the included fictional calendars:
+
+```sh
+PROJECT="/absolute/path/calendar-identity"
+"$PROJECT/.venv/bin/python" "$PROJECT/calendar_identity.py" \
+  "$PROJECT/calendar-identity-feedback/before.ics" \
+  "$PROJECT/calendar-identity-feedback/after.ics"
+```
+
+Expected: 3 events per file, added position `[1]`, removed position `[3]`, 2 shared identities and one sequence regression (before position 2, sequence 3; after position 2, sequence 2). Exit status is 0. The command reads both inputs without changing them; it does not import events.
+
 Exit 0 means comparison completed, including when differences exist. Exit 2 means rejected/unreadable input. Duplicate UID plus recurrence identity is ambiguous, including different revisions in one file, and stops comparison. Missing SEQUENCE is treated as 0. Inputs are limited to 8 MiB each. Nested VEVENT records are rejected, including records structurally equal to a top-level event. Multiple calendars and non-event top-level components other than VTIMEZONE are unsupported. RECURRENCE-ID RANGE and extension parameters are unsupported. The parser is an established third-party component; this program is not a comprehensive RFC validator or a hostile-file security audit.
 
 Identity is case-sensitive decoded UID plus literal typed recurrence representation including TZID. Equivalent timezone representations are not normalized. A changed UID can appear as an addition and removal; this does not prove it is a duplicate. Shared identity does not mean unchanged content. No recurrence expansion, provider API, live calendar check, import prediction or repair. Test first on disposable copies; never infer it is safe to import from this report.
