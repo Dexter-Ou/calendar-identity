@@ -66,6 +66,10 @@ The complete ZIP above includes three fictional calendars. After setup, follow [
 
 ## Regular-file inputs
 
+Compare two individual ICS files, not collection directories. For a calendar stored as item files, select the corresponding item file from each snapshot. Filenames are not identity: renaming an otherwise identical item still reports shared identity. A single item containing a master event and one recurrence exception reports two explicit identities. This tool does not traverse directories, match item files across a collection or compare a whole collection automatically. Do not concatenate item files as a workaround; multiple VCALENDAR containers are unsupported.
+
+To check this boundary after setup, save [file_layout_probe.py](examples/file-layout/file_layout_probe.py) locally and run `"/absolute/path/calendar-identity/.venv/bin/python" /absolute/path/file_layout_probe.py /absolute/path/calendar-identity`. It creates and removes temporary fictional calendars, checks renamed items and a master/exception item, and verifies directory rejection. It prints JSON and exits nonzero on a mismatch or changed input/engine bytes. Tested on Linux/Python 3.12.15; no Vdirsyncer execution or provider interoperability test is implied. This probe is an online addition absent from the pinned source ZIP.
+
 Linux/Python 3.12 is the tested platform. Inputs must resolve to regular files; symlinks to regular files remain supported. FIFOs and directories are rejected. Platforms without os.O_NONBLOCK are unsupported and return the usual input error. Windows and other Unix systems have not been tested. This guard prevents the observed no-writer FIFO open hang; it does not impose a deadline on regular-file reads or guarantee arbitrary device/network-filesystem behavior.
 
 ## Fictional CLI preview
