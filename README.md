@@ -4,6 +4,8 @@ Compare two UTF-8 ICS exports locally. Output includes explicit VEVENT identity 
 
 [Source with fictional exercise — download the complete pinned ZIP](https://github.com/Dexter-Ou/calendar-identity/archive/06045639614d330526541e603b012051d0bffd5b.zip). It contains the CLI source, automated tests, fictional calendars, duplicate-export guidance and optional issue template. Extract it and open the `calendar-identity-06045639614d330526541e603b012051d0bffd5b` directory.
 
+[Verify the source ZIP before extracting or installing](docs/DOWNLOAD-INTEGRITY.md). This separate online guide records the pinned archive checksum; it is not included in that unchanged source ZIP.
+
 Free, MIT-licensed preview from Gong LLC. Use Python 3.12 (tested on Linux only). In the extracted source directory, run these POSIX shell commands:
 
 ```sh
