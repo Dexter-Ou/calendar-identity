@@ -36,6 +36,11 @@ Exit 0 means comparison completed, including when differences exist. Exit 2 mean
 
 Identity is case-sensitive decoded UID plus literal typed recurrence representation including TZID. Equivalent timezone representations are not normalized. VTIMEZONE definitions are not compared: the same TZID and recurrence text can retain identity despite a changed UTC offset. [Review timezone definitions separately](docs/TIMEZONE-REVIEW.md), including three runnable synthetic examples. A changed UID can appear as an addition and removal; this does not prove it is a duplicate. Shared identity does not mean unchanged content. No recurrence expansion, provider API, live calendar check, import prediction or repair. Test first on disposable copies; never infer it is safe to import from this report.
 
+UID comparison does not normalize Unicode spelling. For example, fictional `caf\u00e9@example.invalid` (precomposed é) and `cafe\u0301@example.invalid` (e followed by a combining accent) can look the same but report one removal and one addition, with zero shared identities. The `\u` notation here names Unicode code points, not literal backslashes in the UID. Identical accented UIDs, including the tested folded/unfolded representation, share identity. Do not rewrite UIDs from appearance alone; retain the original exports for review.
+
+To reproduce these three synthetic cases after setup, save [unicode_probe.py](examples/unicode/unicode_probe.py) locally and run `"/absolute/path/calendar-identity/.venv/bin/python" /absolute/path/unicode_probe.py /absolute/path/calendar-identity`. The probe prints JSON and exits nonzero if expected identities or unchanged input/engine bytes do not match. It creates temporary fictional calendars and removes them afterward. Tested on Linux/Python 3.12.15; this is not a provider import/export test. This probe is an online addition and is absent from the pinned source ZIP.
+
+
 Source recovery: retain/extract the source ZIP and reinstall pinned dependencies in an isolated environment. Inputs are never rewritten. Dependency installation requires access to the package index or separately prepared packages. The ZIP does not bundle dependency wheels. 
 
 
