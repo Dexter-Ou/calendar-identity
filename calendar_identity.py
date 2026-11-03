@@ -73,7 +73,9 @@ def inventory(data):
             key = (str(uid), recurrence)
             if key in result:
                 raise InvalidCalendar('Duplicate UID/recurrence identity; comparison is ambiguous')
-            result[key] = (index, revision)
+            # Keep parsed serialization private; reports expose positions only.
+            # This is deliberately a representation check, not semantic equality.
+            result[key] = (index, revision, event.to_ical())
         return result
     except InvalidCalendar:
         raise
@@ -96,7 +98,13 @@ def compare(before, after):
              'before_sequence': a[k][1], 'after_sequence': b[k][1]}
             for k in shared if b[k][1] < a[k][1]
         ], key=lambda row: row['before_position']),
+        'changed_event_representations': sorted([
+            {'before_position': a[k][0], 'after_position': b[k][0]}
+            for k in shared if a[k][2] != b[k][2]
+        ], key=lambda row: row['before_position']),
         'limitations': ['Shared identity does not mean unchanged event content.',
+                        'Changed event representations compare parsed VEVENT serialization, including revision metadata and nested components; not semantic equivalence.',
+                        'No warning does not prove unchanged source bytes or content; parser normalization and external VTIMEZONE definitions are outside this check.',
                         'Representation changes can appear as removal plus addition.',
                         'No prediction of import, merge, notification or provider behavior.',
                         'Counts cover explicit VEVENT records only, not expanded occurrences.']
