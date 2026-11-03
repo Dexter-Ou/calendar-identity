@@ -21,3 +21,5 @@ Before opening ANSWERS.md, answer:
 
 Optional feedback: where did setup stop, which wording was unclear, and would comparing identities help your existing export workflow? Report Python/OS version and the first confusing step. No timing target or completion claim is implied.
 Share only a fictional reproduction through the repository issues if you choose. Do not upload real calendars, private UIDs, titles, attendees or reports. Counts and positions may be sensitive. Support is best effort. See preview README for full parser/scope limitations.
+
+For a structured setup or bug report, use the optional [fictional exercise issue template](../.github/ISSUE_TEMPLATE/fictional-exercise.md). GitHub issues are public and require an account; review all text before submitting.
