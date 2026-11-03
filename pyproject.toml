@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools==84.2.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "calendar-identity"
+version = "0.1.0a1"
+description = "Compare literal event identities and parsed event changes in two ICS files locally"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = ["icalendar==7.2.0", "python-dateutil==4.0.0", "typing_extensions==4.16.0", "tzdata==2026.6"]
+
+[project.scripts]
+calendar-identity = "calendar_identity:main"
+
+[project.urls]
+Source = "https://github.com/Dexter-Ou/calendar-identity"
+
+[tool.setuptools]
+py-modules = ["calendar_identity"]
