@@ -19,7 +19,12 @@ Before opening ANSWERS.md, answer:
 3. How many explicit records are counted? Is that an expanded recurrence count or proof an import is safe?
 4. Does the second command produce a usable comparison? What exit code do you observe?
 
-Optional feedback: where did setup stop, which wording was unclear, and would comparing identities help your existing export workflow? Report Python/OS version and the first confusing step. No timing target or completion claim is implied.
+Optional workflow feedback (answer before reading ANSWERS.md or REPORT-GUIDE.md):
+- For the fictional SEQUENCE decrease, what would you investigate next, and which before/after event positions would you inspect? What can this report alone establish about the cause?
+- Are positions and SEQUENCE values enough for that next step? If not, describe the missing information without sharing real calendar data. Would you need to inspect your authorized local exports separately?
+- If you already compare authorized exports, describe your current method and whether this report would change a specific decision. “No change” or “no applicable workflow” are useful answers. Do not upload exports or reports.
+
+For setup feedback, report Python/OS version and the first confusing step or where setup stopped. No timing target or completion claim is implied.
 Share only a fictional reproduction through the repository issues if you choose. Do not upload real calendars, private UIDs, titles, attendees or reports. Counts and positions may be sensitive. Support is best effort. See preview README for full parser/scope limitations.
 
 For a structured setup or bug report, use the optional [fictional exercise issue template](../.github/ISSUE_TEMPLATE/fictional-exercise.md). GitHub issues are public and require an account; review all text before submitting.
