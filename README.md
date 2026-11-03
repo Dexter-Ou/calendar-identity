@@ -2,19 +2,9 @@
 
 Compare two UTF-8 ICS exports locally. Output includes explicit VEVENT identity additions/removals, shared identity counts, and sequence regressions. Positions are 1-based VEVENT order in each file. No file modification or network calls by this program. Reports omit UID, titles, descriptions and attendees; counts and positions can still be sensitive.
 
-## Choose your review task
+## Start here: install the CLI
 
-| Your task | Start here | What this tool can establish |
-| --- | --- | --- |
-| Compare identities in two calendar export files | [Migration review checklist](docs/MIGRATION-CHECKLIST.md) | Added, removed and shared literal event identities, plus sequence regressions. |
-| Investigate repeated imports or changed meeting times | [Repeated-export review](docs/UPDATE-REVIEW.md) | Identity overlap only; matching metrics do not confirm unchanged content or a successful update. |
-| Understand a report before using your own exports | [Fictional report guide](calendar-identity-feedback/REPORT-GUIDE.md) | Field meanings and the ambiguous-identity error path, using included fictional inputs. |
-
-Use two individual regular ICS files. Collection directories, import repair and provider synchronization are outside this tool's scope. Keep original exports unchanged and perform any import test separately on disposable calendars. The setup and pinned download below remain the starting point for running the CLI.
-
-## Install the command
-
-For CLI use without keeping an extracted source directory, install this pinned preview into a virtual environment. Python 3.11 or newer is required by the pinned dependencies; Linux/Python 3.12 is the tested configuration. These POSIX commands were tested on Linux with Python 3.12.15. Package installation downloads build tools and dependencies; the installed comparison command makes no network calls.
+Install the pinned preview in a virtual environment, then replace the two absolute file paths below with your authorized local ICS exports. Use an empty working directory and a POSIX shell. Python 3.11+ is required; Linux/Python 3.12.15 is tested. Installation downloads build tools and dependencies; the comparison command makes no network calls.
 
 ```sh
 python3 -m venv .venv
@@ -23,9 +13,11 @@ python3 -m venv .venv
 .venv/bin/calendar-identity /absolute/path/before.ics /absolute/path/after.ics
 ```
 
-The URL pins source revision `eec1ad9324bacaa0112130b7c30a811d799f0755` and its archive checksum. This installs package version `0.1.0a1`; it is not a PyPI package-name installation. The command can run outside the source directory when invoked by its virtual-environment path. Reports and exit statuses are the same as the source CLI described below. To remove it, run `.venv/bin/python -m pip uninstall calendar-identity`.
+This installs `0.1.0a1` from source revision `eec1ad9324bacaa0112130b7c30a811d799f0755` with an archive checksum, rather than from a PyPI package-name listing. Invoke the CLI by its virtual-environment path from other directories. To remove it, run `.venv/bin/python -m pip uninstall calendar-identity`.
 
-For the fictional calendars, guides and automated tests, use the complete ZIP and source setup below. The installed package contains the CLI and license, without those extra files. Linux/Python 3.12 is tested; other platforms and Python versions remain untested.
+## Try fictional calendars instead
+
+The installed package contains the CLI and license; fictional inputs, guides and tests require the separate complete source ZIP below. You do not need both setups to compare your own files. The source example uses Python 3.12 on Linux; other configurations remain untested.
 
 [Source with fictional exercise — download the complete pinned ZIP](https://github.com/Dexter-Ou/calendar-identity/archive/03b88ed9f11bfbb159eae507ba368dac22aaadba.zip). It contains the CLI source, automated tests, fictional calendars, migration checklist, timezone and newline review guides, Unicode and file-layout probes, duplicate-export guidance and optional issue template. Extract it and open the `calendar-identity-03b88ed9f11bfbb159eae507ba368dac22aaadba` directory.
 
@@ -67,6 +59,17 @@ To reproduce these three synthetic cases after setup, save [unicode_probe.py](ex
 
 
 Source recovery: retain/extract the source ZIP and reinstall pinned dependencies in an isolated environment. Inputs are never rewritten. Dependency installation requires access to the package index or separately prepared packages. The ZIP does not bundle dependency wheels. 
+
+
+## Choose your review task
+
+| Your task | Start here | What this tool can establish |
+| --- | --- | --- |
+| Compare identities in two calendar export files | [Migration review checklist](docs/MIGRATION-CHECKLIST.md) | Added, removed and shared literal event identities, plus sequence regressions. |
+| Investigate repeated imports or changed meeting times | [Repeated-export review](docs/UPDATE-REVIEW.md) | Identity overlap only; matching metrics do not confirm unchanged content or a successful update. |
+| Understand a report before using your own exports | [Fictional report guide](calendar-identity-feedback/REPORT-GUIDE.md) | Field meanings and the ambiguous-identity error path, using included fictional inputs. |
+
+Use two individual regular ICS files. Collection directories, import repair and provider synchronization are outside this tool's scope. Keep original exports unchanged and perform any import test separately on disposable calendars. The setup and pinned download above remain the starting point for running the CLI.
 
 
 ## Parser tolerance and supported scope
