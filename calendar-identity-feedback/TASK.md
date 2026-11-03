@@ -23,3 +23,5 @@ Optional feedback: where did setup stop, which wording was unclear, and would co
 Share only a fictional reproduction through the repository issues if you choose. Do not upload real calendars, private UIDs, titles, attendees or reports. Counts and positions may be sensitive. Support is best effort. See preview README for full parser/scope limitations.
 
 For a structured setup or bug report, use the optional [fictional exercise issue template](../.github/ISSUE_TEMPLATE/fictional-exercise.md). GitHub issues are public and require an account; review all text before submitting.
+
+After answering, use the [field-by-field report guide](REPORT-GUIDE.md) to connect the JSON to a fictional migration review.
