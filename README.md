@@ -41,7 +41,7 @@ Source recovery: retain/extract the source ZIP and reinstall pinned dependencies
 
 ## Parser tolerance and supported scope
 
-This checks identity/revision properties rather than complete event validity. The parser can accept events missing DTSTART and calendars missing VERSION. Unknown TZID names are retained literally, without proving the timezone exists. The library normalizes integer spellings such as SEQUENCE:+1 before comparison. Invalid parsed dates, multiple calendars and trailing non-calendar text are rejected in the tested fixtures; this is not exhaustive malformed-input coverage. An empty calendar reports zero explicit events. Successful comparison is not a validation certificate.
+This checks identity/revision properties rather than complete event validity. The parser can accept events missing DTSTART and calendars missing VERSION. Unknown TZID names are retained literally, without proving the timezone exists. The library normalizes integer spellings such as SEQUENCE:+1 before comparison. Invalid parsed dates, multiple calendars and trailing non-calendar text are rejected in the tested fixtures; this is not exhaustive malformed-input coverage. An empty calendar reports zero explicit events. Successful comparison is not a validation certificate. Raw newline behavior can depend on the following text: [see the synthetic DESCRIPTION examples and probe](docs/NEWLINE-REVIEW.md).
 
 ## Feedback and support
 
