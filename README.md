@@ -2,7 +2,7 @@
 
 Compare two UTF-8 ICS exports locally. Output includes explicit VEVENT identity additions/removals, shared identity counts, and sequence regressions. Positions are 1-based VEVENT order in each file. No file modification or network calls by this program. Reports omit UID, titles, descriptions and attendees; counts and positions can still be sensitive.
 
-[Source with fictional exercise — download the complete pinned ZIP](https://github.com/Dexter-Ou/calendar-identity/archive/17a8bb7da93f5bf7645ee6c2d80cf5e9e202e2b6.zip). It contains the CLI source, automated tests, fictional calendars, duplicate-export guidance and optional issue template. Extract it and open the `calendar-identity-17a8bb7da93f5bf7645ee6c2d80cf5e9e202e2b6` directory.
+[Source with fictional exercise — download the complete pinned ZIP](https://github.com/Dexter-Ou/calendar-identity/archive/06045639614d330526541e603b012051d0bffd5b.zip). It contains the CLI source, automated tests, fictional calendars, duplicate-export guidance and optional issue template. Extract it and open the `calendar-identity-06045639614d330526541e603b012051d0bffd5b` directory.
 
 Free, MIT-licensed preview from Gong LLC. Use Python 3.12 (tested on Linux only). In the extracted source directory, run these POSIX shell commands:
 
@@ -63,4 +63,4 @@ Linux/Python 3.12 is the tested platform. Inputs must resolve to regular files; 
 
 ## Fictional CLI preview
 
-[Download the self-contained HTML preview](https://raw.githubusercontent.com/Dexter-Ou/calendar-identity/main/docs/CLI-PREVIEW.html), save it as `CLI-PREVIEW.html`, and open it locally in a browser. It shows a styled rendering of actual CLI output from the bundled fictional before/after calendars on Linux/Python 3.12; it is not an interactive terminal. The preview needs no external page resources. It is separate from the pinned source ZIP above. For field meanings and the error path, see the [report guide](calendar-identity-feedback/REPORT-GUIDE.md).
+[Download the self-contained HTML preview](https://raw.githubusercontent.com/Dexter-Ou/calendar-identity/main/docs/CLI-PREVIEW.html), save it as `CLI-PREVIEW.html`, and open it locally in a browser. It shows a styled rendering of actual CLI output from the bundled fictional before/after calendars on Linux/Python 3.12; it is not an interactive terminal. The preview needs no external page resources. It is also included as `docs/CLI-PREVIEW.html` in the pinned source ZIP above. For field meanings and the error path, see the [report guide](calendar-identity-feedback/REPORT-GUIDE.md).
