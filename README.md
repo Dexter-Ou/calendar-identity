@@ -93,3 +93,9 @@ Linux/Python 3.12 is the tested platform. Inputs must resolve to regular files; 
 ## Repeated exports with the same UID
 
 [Review repeated exports and changed meeting times](docs/UPDATE-REVIEW.md) to see why identical comparison metrics do not establish unchanged content or a successful import update. The guide includes a separately downloadable four-case fictional probe; these new files are not in the pinned ZIP above.
+
+## Content-change warning (current source)
+
+The current source adds `changed_event_representations`: before/after position pairs for shared identities whose parsed VEVENT serialization differs. It includes event properties, revision metadata and nested components such as alarms. A moved DTSTART with unchanged UID and SEQUENCE therefore produces a warning. No titles, UIDs, property values or fingerprints are included. Existing identity and sequence fields retain their meanings.
+
+This is a conservative representation check, not a semantic diff. Property ordering normalized by the parser may compare equal; metadata-only changes may warn. An empty warning list does not establish unchanged source bytes or meaning. External VTIMEZONE definitions remain outside the check. Do not infer importer behavior or safety from either result. This warning is available in the current source; it is not included in the older pinned ZIP above. To use it now, obtain a source snapshot of the current revision and follow the same setup commands. The pinned ZIP retains its original identity-only behavior.
