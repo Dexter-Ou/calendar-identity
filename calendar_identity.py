@@ -32,7 +32,8 @@ def inventory(data):
                 raise InvalidCalendar('Parser reported invalid properties')
         if any(c.name not in ('VEVENT', 'VTIMEZONE') for c in cal.subcomponents):
             raise InvalidCalendar('Only VEVENT and VTIMEZONE components supported')
-        if any(c.name == 'VEVENT' for c in cal.walk()[1:] if c not in cal.subcomponents):
+        top_level_ids = {id(c) for c in cal.subcomponents}
+        if any(c.name == 'VEVENT' for c in cal.walk()[1:] if id(c) not in top_level_ids):
             raise InvalidCalendar('Nested VEVENT unsupported')
         result = {}
         for index, event in enumerate((c for c in cal.subcomponents if c.name == 'VEVENT'), 1):
