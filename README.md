@@ -2,6 +2,8 @@
 
 Compare two UTF-8 ICS exports locally. Output includes explicit VEVENT identity additions/removals, shared identity counts, and sequence regressions. Positions are 1-based VEVENT order in each file. No file modification or network calls by this program. Reports omit UID, titles, descriptions and attendees; counts and positions can still be sensitive.
 
+Prefer to try fictional data first? [Start the setup exercise](calendar-identity-feedback/TASK.md). It uses the complete source ZIP and includes explicit setup commands; no calendar account or private export is needed.
+
 ## Start here: install the CLI
 
 Install the pinned preview in a virtual environment, then replace the two absolute file paths below with your authorized local ICS exports. Use an empty working directory and a POSIX shell. Python 3.11+ is required; Linux/Python 3.12.15 is tested. Installation downloads build tools and dependencies; the comparison command makes no network calls.
