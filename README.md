@@ -45,3 +45,7 @@ The complete ZIP above includes three fictional calendars. After setup, follow [
 ## Equal-count snapshots
 
 [Compare fictional snapshots with equal event totals](examples/equal-count/README.md) to see why equal counts can hide an identity change and how to interpret the result. The complete ZIP above includes both fictional inputs and the guide.
+
+## Regular-file inputs
+
+Linux/Python 3.12 is the tested platform. Inputs must resolve to regular files; symlinks to regular files remain supported. FIFOs and directories are rejected. Platforms without os.O_NONBLOCK are unsupported and return the usual input error. Windows and other Unix systems have not been tested. This guard prevents the observed no-writer FIFO open hang; it does not impose a deadline on regular-file reads or guarantee arbitrary device/network-filesystem behavior.
