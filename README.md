@@ -12,6 +12,21 @@ Compare two UTF-8 ICS exports locally. Output includes explicit VEVENT identity 
 
 Use two individual regular ICS files. Collection directories, import repair and provider synchronization are outside this tool's scope. Keep original exports unchanged and perform any import test separately on disposable calendars. The setup and pinned download below remain the starting point for running the CLI.
 
+## Install the command
+
+For CLI use without keeping an extracted source directory, install this pinned preview into a virtual environment. These POSIX commands were tested on Linux with Python 3.12.15. Package installation downloads build tools and dependencies; the installed comparison command makes no network calls.
+
+```sh
+python3 -m venv .venv
+.venv/bin/python -m pip install "https://codeload.github.com/Dexter-Ou/calendar-identity/zip/698e987ed99acc856d00129e6e9f2af09abf283b#sha256=5751eb1a6d9a0e11ecf19570947ff80aef9a2ca2944a7da0ef66af5a39b85b27"
+.venv/bin/calendar-identity --help
+.venv/bin/calendar-identity /absolute/path/before.ics /absolute/path/after.ics
+```
+
+The URL pins source revision `698e987ed99acc856d00129e6e9f2af09abf283b` and its archive checksum. This installs package version `0.1.0a1`; it is not a PyPI package-name installation. The command can run outside the source directory when invoked by its virtual-environment path. Reports and exit statuses are the same as the source CLI described below. To remove it, run `.venv/bin/python -m pip uninstall calendar-identity`.
+
+For the fictional calendars, guides and automated tests, use the complete ZIP and source setup below. The installed package contains the CLI and license, without those extra files. Linux/Python 3.12 is tested; other platforms and Python versions remain untested.
+
 [Source with fictional exercise — download the complete pinned ZIP](https://github.com/Dexter-Ou/calendar-identity/archive/03b88ed9f11bfbb159eae507ba368dac22aaadba.zip). It contains the CLI source, automated tests, fictional calendars, migration checklist, timezone and newline review guides, Unicode and file-layout probes, duplicate-export guidance and optional issue template. Extract it and open the `calendar-identity-03b88ed9f11bfbb159eae507ba368dac22aaadba` directory.
 
 [Verify the source ZIP before extracting or installing](docs/DOWNLOAD-INTEGRITY.md). The current online guide records the checksum for this exact snapshot. The ZIP contains an older README and integrity guide pointing to a preceding snapshot, including an outdated statement that the warning is source-only; this pinned ZIP contains the warning and its tests. After verifying this ZIP using the current online guide, continue with the setup commands below (or the identical setup commands inside the ZIP); you do not need to download the older snapshot.
