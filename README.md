@@ -2,7 +2,7 @@
 
 Compare two UTF-8 ICS exports locally. Output includes explicit VEVENT identity additions/removals, shared identity counts, and sequence regressions. Positions are 1-based VEVENT order in each file. No file modification or network calls by this program. Reports omit UID, titles, descriptions and attendees; counts and positions can still be sensitive.
 
-[Download the pinned source ZIP](https://github.com/Dexter-Ou/calendar-identity/archive/e6da38ad53a76b4f98316b207c0b8f923928fcc9.zip), extract it, and open the `calendar-identity-e6da38ad53a76b4f98316b207c0b8f923928fcc9` directory.
+[Source with fictional exercise — download the complete pinned ZIP](https://github.com/Dexter-Ou/calendar-identity/archive/62744d17e6ed282b464af164fd080a5b6c974cf6.zip). It contains the CLI source, automated tests, fictional calendars, duplicate-export guidance and optional issue template. Extract it and open the `calendar-identity-62744d17e6ed282b464af164fd080a5b6c974cf6` directory.
 
 Free, MIT-licensed preview from Gong LLC. Use Python 3.12 (tested on Linux only). In the extracted source directory, run these POSIX shell commands:
 
@@ -36,8 +36,8 @@ Report setup problems or reproducible bugs through this repository's issues. Inc
 
 ## Fictional setup exercise
 
-[Source with fictional exercise](https://github.com/Dexter-Ou/calendar-identity/archive/b3da96db7b5882e73ecd287c2f280613e06bd271.zip) includes the source and three fictional calendars. Extract it and follow [the exercise instructions](calendar-identity-feedback/TASK.md) to compare a moved recurrence exception and an ambiguous duplicate identity without using private calendars. [Expected answers](calendar-identity-feedback/ANSWERS.md) are separate so you can inspect the results first.
+The complete ZIP above includes three fictional calendars. After setup, follow [the exercise instructions](calendar-identity-feedback/TASK.md) to compare a moved recurrence exception and an ambiguous duplicate identity without using private calendars. [Expected answers](calendar-identity-feedback/ANSWERS.md) are separate so you can inspect the results first. An optional [fictional exercise issue template](.github/ISSUE_TEMPLATE/fictional-exercise.md) helps describe setup problems; GitHub issues are public and require an account.
 
 ## Duplicate exports
 
-[Duplicate-export guidance](calendar-identity-feedback/DUPLICATE-EXPORT-NOTE.md) explains why revision metadata does not resolve ambiguous identities and how to investigate without modifying the export. [Download source with this guide](https://github.com/Dexter-Ou/calendar-identity/archive/01c760eed0a26dcea0b27908ee379306bc4fbbf0.zip).
+[Duplicate-export guidance](calendar-identity-feedback/DUPLICATE-EXPORT-NOTE.md) explains why revision metadata does not resolve ambiguous identities and how to investigate without modifying the export. The guide is included in the complete ZIP above.
