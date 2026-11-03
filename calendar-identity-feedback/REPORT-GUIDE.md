@@ -16,8 +16,12 @@ A completed comparison exits 0 even when differences exist. Its JSON is:
   "comparison": "literal UID and typed recurrence representation; no timezone equivalence or recurrence expansion",
   "before_events": 3,
   "after_events": 3,
-  "added_event_positions": [1],
-  "removed_event_positions": [3],
+  "added_event_positions": [
+    1
+  ],
+  "removed_event_positions": [
+    3
+  ],
   "shared_identities": 2,
   "sequence_regressions": [
     {
@@ -27,8 +31,20 @@ A completed comparison exits 0 even when differences exist. Its JSON is:
       "after_sequence": 2
     }
   ],
+  "changed_event_representations": [
+    {
+      "before_position": 1,
+      "after_position": 3
+    },
+    {
+      "before_position": 2,
+      "after_position": 2
+    }
+  ],
   "limitations": [
     "Shared identity does not mean unchanged event content.",
+    "Changed event representations compare parsed VEVENT serialization, including revision metadata and nested components; not semantic equivalence.",
+    "No warning does not prove unchanged source bytes or content; parser normalization and external VTIMEZONE definitions are outside this check.",
     "Representation changes can appear as removal plus addition.",
     "No prediction of import, merge, notification or provider behavior.",
     "Counts cover explicit VEVENT records only, not expanded occurrences."
@@ -45,6 +61,7 @@ A completed comparison exits 0 even when differences exist. Its JSON is:
 | `removed_event_positions` | Before-file VEVENT position 3 has an identity absent from after. | Inspect before position 3. This is not proof that a provider deleted anything. |
 | `shared_identities` | Two identities occur in both files. | Inspect content separately: the fictional master changes SUMMARY and the exception changes DTSTART while retaining identity. |
 | `sequence_regressions` | The shared exception at before position 2 and after position 2 falls from sequence 3 to 2. | Investigate export provenance/revisions; do not automatically select, rewrite or import a revision. |
+| `changed_event_representations` | Shared before positions 1 and 2 differ from after positions 3 and 2 in parsed VEVENT serialization. | Inspect those records locally. Revision metadata and nested components count as changes; this is not semantic equivalence or a field-by-field diff. |
 | `limitations` | Scope reminders attached to this report. | Keep them with any saved report; success does not certify import safety. |
 
 Positions count VEVENT records from 1 separately in each input. They are not
@@ -53,6 +70,12 @@ move to a different position. Missing SEQUENCE is treated as 0; the regression
 list contains only decreases for shared identities. An empty list does not mean
 unchanged content or successful migration. A changed UID or recurrence
 representation can appear as an addition plus a removal.
+
+`changed_event_representations` compares parsed VEVENT serialization for shared
+identities. It includes revision metadata and nested components. An empty list
+does not prove unchanged source bytes or content: parser normalization and
+external VTIMEZONE definitions are outside this check. It does not identify the
+cause of a change or establish which revision is correct.
 
 For this fictional migration, the next decision is to investigate the unmatched
 records and the lower exception sequence before attempting any disposable
