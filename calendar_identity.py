@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Read-only, literal VEVENT identity comparison; not an import predictor."""
 import argparse
+import os
+import stat
 import datetime
 import json
 import re
@@ -101,8 +103,16 @@ def compare(before, after):
     }
 
 def read_bounded(path):
-    with Path(path).open('rb') as stream:
-        return stream.read(MAX_BYTES + 1)
+    if not hasattr(os, 'O_NONBLOCK'):
+        raise OSError('Nonblocking regular-file reads unsupported')
+    fd = os.open(path, os.O_RDONLY | os.O_NONBLOCK)
+    try:
+        if not stat.S_ISREG(os.fstat(fd).st_mode):
+            raise OSError('Input must be a regular file')
+        with os.fdopen(fd, 'rb', closefd=False) as stream:
+            return stream.read(MAX_BYTES + 1)
+    finally:
+        os.close(fd)
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
