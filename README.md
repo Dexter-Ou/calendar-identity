@@ -117,3 +117,8 @@ Linux/Python 3.12 is the tested platform. Inputs must resolve to regular files; 
 The pinned download includes `changed_event_representations`: before/after position pairs for shared identities whose parsed VEVENT serialization differs. It includes event properties, revision metadata and nested components such as alarms. A moved DTSTART with unchanged UID and SEQUENCE therefore produces a warning. No titles, UIDs, property values or fingerprints are included. Existing identity and sequence fields retain their meanings.
 
 This is a conservative representation check, not a semantic diff. Property ordering normalized by the parser may compare equal; metadata-only changes may warn. An empty warning list does not establish unchanged source bytes or meaning. External VTIMEZONE definitions remain outside the check. Do not infer importer behavior or safety from either result. This warning is included in the pinned ZIP above. After setup, run the CLI or `.venv/bin/python -m unittest -v` to exercise the automated synthetic cases.
+
+
+## Fictional scale check
+
+[Run the optional 5,000-event scale check](examples/scale/README.md) against the installed CLI. It uses disposable fictional calendars to verify exact counts, the final-position SEQUENCE regression and unchanged inputs, with a fixed 30-second timeout. Save the linked script separately; the pinned installer and source exercise ZIP above do not include it. This is a synthetic check, not a general performance guarantee.
