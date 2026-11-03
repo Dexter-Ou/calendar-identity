@@ -4,8 +4,16 @@ Use only these fictional calendars. No calendar account or import is needed.
 Download the **Source with fictional exercise** ZIP linked in the repository README,
 then extract it. The archive contains both the Python source and this exercise.
 Python 3.12 on Linux is the tested platform. Dependencies need package-index access.
-From the extracted repository's root directory, create the virtual environment and
-install requirements using the README's first two setup commands. Then run:
+From the extracted repository's root directory, run these POSIX shell commands
+to create a virtual environment and install the source requirements. This source
+setup is sufficient for the exercise; the separate packaged-CLI install is optional.
+
+```sh
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+```
+
+Then compare the fictional calendars from that same directory:
 
 ```sh
 .venv/bin/python calendar_identity.py calendar-identity-feedback/before.ics calendar-identity-feedback/after.ics
