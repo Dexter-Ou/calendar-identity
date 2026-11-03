@@ -2,7 +2,7 @@
 
 Compare two UTF-8 ICS exports locally. Output includes explicit VEVENT identity additions/removals, shared identity counts, and sequence regressions. Positions are 1-based VEVENT order in each file. No file modification or network calls by this program. Reports omit UID, titles, descriptions and attendees; counts and positions can still be sensitive.
 
-[Source with fictional exercise — download the complete pinned ZIP](https://github.com/Dexter-Ou/calendar-identity/archive/ef8879b9fbe76c6f4ad830157d158f8a869b2e3d.zip). It contains the CLI source, automated tests, fictional calendars, duplicate-export guidance and optional issue template. Extract it and open the `calendar-identity-ef8879b9fbe76c6f4ad830157d158f8a869b2e3d` directory.
+[Source with fictional exercise — download the complete pinned ZIP](https://github.com/Dexter-Ou/calendar-identity/archive/dcc36c11bc80426051fb06aa9bbb434f5f7650f5.zip). It contains the CLI source, automated tests, fictional calendars, duplicate-export guidance and optional issue template. Extract it and open the `calendar-identity-dcc36c11bc80426051fb06aa9bbb434f5f7650f5` directory.
 
 Free, MIT-licensed preview from Gong LLC. Use Python 3.12 (tested on Linux only). In the extracted source directory, run these POSIX shell commands:
 
@@ -41,3 +41,7 @@ The complete ZIP above includes three fictional calendars. After setup, follow [
 ## Duplicate exports
 
 [Duplicate-export guidance](calendar-identity-feedback/DUPLICATE-EXPORT-NOTE.md) explains why revision metadata does not resolve ambiguous identities and how to investigate without modifying the export. The guide is included in the complete ZIP above.
+
+## Equal-count snapshots
+
+[Compare fictional snapshots with equal event totals](examples/equal-count/README.md) to see why equal counts can hide an identity change and how to interpret the result. The complete ZIP above includes both fictional inputs and the guide.
