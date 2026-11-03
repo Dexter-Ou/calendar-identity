@@ -2,7 +2,7 @@
 
 Compare two UTF-8 ICS exports locally. Output includes explicit VEVENT identity additions/removals, shared identity counts, and sequence regressions. Positions are 1-based VEVENT order in each file. No file modification or network calls by this program. Reports omit UID, titles, descriptions and attendees; counts and positions can still be sensitive.
 
-[Source with fictional exercise — download the complete pinned ZIP](https://github.com/Dexter-Ou/calendar-identity/archive/dcc36c11bc80426051fb06aa9bbb434f5f7650f5.zip). It contains the CLI source, automated tests, fictional calendars, duplicate-export guidance and optional issue template. Extract it and open the `calendar-identity-dcc36c11bc80426051fb06aa9bbb434f5f7650f5` directory.
+[Source with fictional exercise — download the complete pinned ZIP](https://github.com/Dexter-Ou/calendar-identity/archive/26ff8d401ca7f6c2219cce108c62b684b2bd5aa3.zip). It contains the CLI source, automated tests, fictional calendars, duplicate-export guidance and optional issue template. Extract it and open the `calendar-identity-26ff8d401ca7f6c2219cce108c62b684b2bd5aa3` directory.
 
 Free, MIT-licensed preview from Gong LLC. Use Python 3.12 (tested on Linux only). In the extracted source directory, run these POSIX shell commands:
 
@@ -19,7 +19,7 @@ The disposable synthetic example should report 3 events in each file, one additi
 .venv/bin/python -m unittest -v
 ```
 
-Exit 0 means comparison completed, including when differences exist. Exit 2 means rejected/unreadable input. Duplicate UID plus recurrence identity is ambiguous, including different revisions in one file, and stops comparison. Missing SEQUENCE is treated as 0. Inputs are limited to 8 MiB each. Multiple calendars and non-event top-level components other than VTIMEZONE are unsupported. RECURRENCE-ID RANGE and extension parameters are unsupported. The parser is an established third-party component; this program is not a comprehensive RFC validator or a hostile-file security audit.
+Exit 0 means comparison completed, including when differences exist. Exit 2 means rejected/unreadable input. Duplicate UID plus recurrence identity is ambiguous, including different revisions in one file, and stops comparison. Missing SEQUENCE is treated as 0. Inputs are limited to 8 MiB each. Nested VEVENT records are rejected, including records structurally equal to a top-level event. Multiple calendars and non-event top-level components other than VTIMEZONE are unsupported. RECURRENCE-ID RANGE and extension parameters are unsupported. The parser is an established third-party component; this program is not a comprehensive RFC validator or a hostile-file security audit.
 
 Identity is case-sensitive decoded UID plus literal typed recurrence representation including TZID. Equivalent timezone representations are not normalized. A changed UID can appear as an addition and removal; this does not prove it is a duplicate. Shared identity does not mean unchanged content. No recurrence expansion, provider API, live calendar check, import prediction or repair. Test first on disposable copies; never infer it is safe to import from this report.
 
