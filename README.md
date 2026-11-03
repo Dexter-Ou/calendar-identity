@@ -2,9 +2,9 @@
 
 Compare two UTF-8 ICS exports locally. Output includes explicit VEVENT identity additions/removals, shared identity counts, and sequence regressions. Positions are 1-based VEVENT order in each file. No file modification or network calls by this program. Reports omit UID, titles, descriptions and attendees; counts and positions can still be sensitive.
 
-[Source with fictional exercise — download the complete pinned ZIP](https://github.com/Dexter-Ou/calendar-identity/archive/06045639614d330526541e603b012051d0bffd5b.zip). It contains the CLI source, automated tests, fictional calendars, duplicate-export guidance and optional issue template. Extract it and open the `calendar-identity-06045639614d330526541e603b012051d0bffd5b` directory.
+[Source with fictional exercise — download the complete pinned ZIP](https://github.com/Dexter-Ou/calendar-identity/archive/029dfaa7570d24367b88d362a73ef50945c47ddf.zip). It contains the CLI source, automated tests, fictional calendars, migration checklist, timezone and newline review guides with runnable probes, duplicate-export guidance and optional issue template. Extract it and open the `calendar-identity-029dfaa7570d24367b88d362a73ef50945c47ddf` directory.
 
-[Verify the source ZIP before extracting or installing](docs/DOWNLOAD-INTEGRITY.md). This separate online guide records the pinned archive checksum; it is not included in that unchanged source ZIP.
+[Verify the source ZIP before extracting or installing](docs/DOWNLOAD-INTEGRITY.md). The current online guide records the checksum for this exact snapshot. The ZIP contains an older README and integrity guide pointing to a preceding snapshot. After verifying this ZIP using the current online guide, continue with the setup commands below (or the identical setup commands inside the ZIP); you do not need to download the older snapshot.
 
 Free, MIT-licensed preview from Gong LLC. Use Python 3.12 (tested on Linux only). In the extracted source directory, run these POSIX shell commands:
 
@@ -69,4 +69,4 @@ Linux/Python 3.12 is the tested platform. Inputs must resolve to regular files; 
 
 ## Migration review checklist
 
-[Use the calendar export comparison checklist](docs/MIGRATION-CHECKLIST.md) to investigate export scope, identity differences, sequence regressions and ambiguous duplicates before a separate provider import test. The checklist is a separate online document; the pinned source ZIP above remains unchanged.
+[Use the calendar export comparison checklist](docs/MIGRATION-CHECKLIST.md) to investigate export scope, identity differences, sequence regressions and ambiguous duplicates before a separate provider import test. The checklist is included in the pinned source ZIP above.
