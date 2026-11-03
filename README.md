@@ -49,3 +49,7 @@ The complete ZIP above includes three fictional calendars. After setup, follow [
 ## Regular-file inputs
 
 Linux/Python 3.12 is the tested platform. Inputs must resolve to regular files; symlinks to regular files remain supported. FIFOs and directories are rejected. Platforms without os.O_NONBLOCK are unsupported and return the usual input error. Windows and other Unix systems have not been tested. This guard prevents the observed no-writer FIFO open hang; it does not impose a deadline on regular-file reads or guarantee arbitrary device/network-filesystem behavior.
+
+## Fictional CLI preview
+
+[Download the self-contained HTML preview](https://raw.githubusercontent.com/Dexter-Ou/calendar-identity/main/docs/CLI-PREVIEW.html), save it as `CLI-PREVIEW.html`, and open it locally in a browser. It shows a styled rendering of actual CLI output from the bundled fictional before/after calendars on Linux/Python 3.12; it is not an interactive terminal. The preview needs no external page resources. It is separate from the pinned source ZIP above. For field meanings and the error path, see the [report guide](calendar-identity-feedback/REPORT-GUIDE.md).
