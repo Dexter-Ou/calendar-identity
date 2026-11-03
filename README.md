@@ -64,3 +64,7 @@ Linux/Python 3.12 is the tested platform. Inputs must resolve to regular files; 
 ## Fictional CLI preview
 
 [Download the self-contained HTML preview](https://raw.githubusercontent.com/Dexter-Ou/calendar-identity/main/docs/CLI-PREVIEW.html), save it as `CLI-PREVIEW.html`, and open it locally in a browser. It shows a styled rendering of actual CLI output from the bundled fictional before/after calendars on Linux/Python 3.12; it is not an interactive terminal. The preview needs no external page resources. It is also included as `docs/CLI-PREVIEW.html` in the pinned source ZIP above. For field meanings and the error path, see the [report guide](calendar-identity-feedback/REPORT-GUIDE.md).
+
+## Migration review checklist
+
+[Use the calendar export comparison checklist](docs/MIGRATION-CHECKLIST.md) to investigate export scope, identity differences, sequence regressions and ambiguous duplicates before a separate provider import test. The checklist is a separate online document; the pinned source ZIP above remains unchanged.
