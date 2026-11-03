@@ -33,3 +33,7 @@ This checks identity/revision properties rather than complete event validity. Th
 ## Feedback and support
 
 Report setup problems or reproducible bugs through this repository's issues. Include a minimal fictional example, Python version and expected result. Do not upload real calendars, UIDs, titles, attendees or private reports. Support is best effort; no response-time commitment. Dependencies retain their own licenses and are installed separately.
+
+## Fictional setup exercise
+
+[Source with fictional exercise](https://github.com/Dexter-Ou/calendar-identity/archive/b3da96db7b5882e73ecd287c2f280613e06bd271.zip) includes the source and three fictional calendars. Extract it and follow [the exercise instructions](calendar-identity-feedback/TASK.md) to compare a moved recurrence exception and an ambiguous duplicate identity without using private calendars. [Expected answers](calendar-identity-feedback/ANSWERS.md) are separate so you can inspect the results first.
