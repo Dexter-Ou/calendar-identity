@@ -124,6 +124,8 @@ def read_bounded(path):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--exit-code', action='store_true',
+                        help='exit 1 for reported export differences, 0 for none; errors exit 2')
     parser.add_argument('before')
     parser.add_argument('after')
     args = parser.parse_args()
@@ -134,6 +136,10 @@ def main():
         print(json.dumps({'error': message}), file=sys.stderr)
         return 2
     print(json.dumps(report, indent=2))
+    if args.exit_code and any(report[field] for field in (
+            'added_event_positions', 'removed_event_positions',
+            'sequence_regressions', 'changed_event_representations')):
+        return 1
     return 0
 
 if __name__ == '__main__':
