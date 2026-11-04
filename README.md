@@ -126,3 +126,13 @@ This is a conservative representation check, not a semantic diff. Property order
 ## Fictional scale check
 
 [Run the optional 5,000-event scale check](examples/scale/README.md) against the installed CLI. It uses disposable fictional calendars to verify exact counts, the final-position SEQUENCE regression and unchanged inputs, with a fixed 30-second timeout. Save the linked script separately; the pinned installer and source exercise ZIP above do not include it. This is a synthetic check, not a general performance guarantee.
+
+### Optional status for scripts
+
+Add `--exit-code` to return **1** when the report contains additions, removals, sequence regressions or changed event representations; **0** means none of those observations were reported. Input or argument errors return **2**. The JSON report is unchanged. Without this flag, successful comparisons still return **0**, including when differences are reported.
+
+```sh
+.venv/bin/python calendar_identity.py --exit-code before.ics after.ics
+```
+
+This flag is an export-review signal, not a provider import result or proof of semantic equality. Event order alone, normalized properties and external VTIMEZONE changes may not trigger it. This working-source feature is not included in the older pinned downloads above.
