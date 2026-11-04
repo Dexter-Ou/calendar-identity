@@ -4,6 +4,8 @@ Compare two UTF-8 ICS exports locally. Output includes explicit VEVENT identity 
 
 Prefer to try fictional data first? [Start the setup exercise](calendar-identity-feedback/TASK.md). It uses the complete source ZIP and includes explicit setup commands; no calendar account or private export is needed.
 
+[Open the download and first-use page](https://dexv-calendar-identity-2ekud546ha-uw.a.run.app/) for the pinned source ZIP, checksum and disposable example. Your calendars stay local; the page has no upload form.
+
 ## Start here: install the CLI
 
 Install the pinned preview in a virtual environment, then replace the two absolute file paths below with your authorized local ICS exports. Use an empty working directory and a POSIX shell. Python 3.11+ is required; Linux/Python 3.12.15 is tested. Installation downloads build tools and dependencies; the comparison command makes no network calls.
