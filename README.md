@@ -12,12 +12,12 @@ Install the pinned preview in a virtual environment, then replace the two absolu
 
 ```sh
 python3 -m venv .venv
-.venv/bin/python -m pip install "https://codeload.github.com/Dexter-Ou/calendar-identity/zip/eec1ad9324bacaa0112130b7c30a811d799f0755#sha256=6c28820a96ace1c25fc0875c7314aea9b37f641666aca145f5994c6fff508504"
+.venv/bin/python -m pip install "https://codeload.github.com/Dexter-Ou/calendar-identity/zip/d3cbe4fdd1405f1d8c1a78123237c67ea03058ed#sha256=ff3cd640b1b61056f626f75341783f7b76b7eb26ef0441f776e2691b86d960d2"
 .venv/bin/calendar-identity --help
 .venv/bin/calendar-identity /absolute/path/before.ics /absolute/path/after.ics
 ```
 
-This installs `0.1.0a1` from source revision `eec1ad9324bacaa0112130b7c30a811d799f0755` with an archive checksum, rather than from a PyPI package-name listing. Invoke the CLI by its virtual-environment path from other directories. To remove it, run `.venv/bin/python -m pip uninstall calendar-identity`.
+This installs `0.1.0a1` from source revision `d3cbe4fdd1405f1d8c1a78123237c67ea03058ed` with an archive checksum, rather than from a PyPI package-name listing. Invoke the CLI by its virtual-environment path from other directories. To remove it, run `.venv/bin/python -m pip uninstall calendar-identity`.
 
 ## Try fictional calendars instead
 
@@ -132,7 +132,7 @@ This is a conservative representation check, not a semantic diff. Property order
 Add `--exit-code` to return **1** when the report contains additions, removals, sequence regressions or changed event representations; **0** means none of those observations were reported. Input or argument errors return **2**. The JSON report is unchanged. Without this flag, successful comparisons still return **0**, including when differences are reported.
 
 ```sh
-.venv/bin/python calendar_identity.py --exit-code before.ics after.ics
+.venv/bin/calendar-identity --exit-code /absolute/path/before.ics /absolute/path/after.ics
 ```
 
-This flag is an export-review signal, not a provider import result or proof of semantic equality. Event order alone, normalized properties and external VTIMEZONE changes may not trigger it. This working-source feature is not included in the older pinned downloads above.
+This flag is an export-review signal, not a provider import result or proof of semantic equality. Event order alone, normalized properties and external VTIMEZONE changes may not trigger it. The primary installer above includes this flag. The separate older fictional-exercise ZIP and hosted download retain their earlier snapshots and do not include it.
